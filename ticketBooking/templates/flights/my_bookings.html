@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}My Bookings{% endblock %}
+
+{% block content %}
+  <h1>My Bookings</h1>
+  {% if bookings %}
+    <ul>
+      {% for booking in bookings %}
+        <li>Flight: {{ booking.flight }} - Seats: {{ booking.number_of_seats }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>You don't have any bookings yet.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Ticket{% endblock %}
+
+{% block content %}
+  <h2>{{ flight.origin }} to {{ flight.destination }} - {{ flight.departure_datetime }}</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="number_of_seats">Number of seats:</label>
+      <input type="number" id="number_of_seats" name="number_of_seats" min="1" value="1">
+    </div>
+    <button type="submit" class="btn btn-primary">Book</button>
+  </form>
+{% endblock %}

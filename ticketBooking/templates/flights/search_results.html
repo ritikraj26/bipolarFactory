@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+  <h1>Search Results</h1>
+  {% if results %}
+    <ul>
+    {% for flight in results %}
+      <li>
+        {{ flight.origin }} to {{ flight.destination }} - {{ flight.airline }} 
+        ({{ flight.departure_datetime }})
+        - <a href="{% url 'book_ticket' flight.id %}">Book Now</a> 
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No flights found matching your search criteria.</p>
+  {% endif %}
+{% endblock %}
